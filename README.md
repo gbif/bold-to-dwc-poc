@@ -75,7 +75,7 @@ cat * > sequence.txt
 
 Move `sequence/sequence.txt` to `data/sequence.txt`.
 
-### Create the DwC archive
+### Zip the DwC archive
 
 ZIP the contents of the `/data` directory.
 
@@ -110,6 +110,34 @@ INSERT INTO boldconsensus (bin_uri) SELECT * FROM bins;
 * Finally create the consensus taxonomy running `checklist/updateboldconsensus.sql`
 
 
+### Get the taxon data out from MySQL
+Run the sql in `checklist/taxonout.sql`. This will create several tsv files with taxa in the `/taxa` dir.
+Concatenate all the taxon files:
+```
+cd taxa
+cat * > taxon.txt
+````
 
+Move `checklist/taxa/taxon.txt` into `checklist/data/taxon.txt`.
+
+### Get data for the DwC Media extension
+Extract the media for earch Phylum:
+
+````
+node checklist/mediataxon.js
+````
+
+Concatenate all media files:
+
+```
+cd checklist/media
+cat * > media.txt
+````
+
+Move `checklist/media/media.txt` to `checklist/data/media.txt`.
+
+### Zip the Checklist DwC archive
+
+ZIP the contents of the `checklist/data` directory.
 
 
