@@ -98,7 +98,16 @@ node inserttaxafromtsv.js
 Populate the BIN enum table:
 ````
 INSERT INTO bins SELECT bin_uri FROM boldtsvtaxa WHERE bin_uri <> "" AND bin_uri IS NOT NULL GROUP BY bin_uri;
+INSERT INTO boldconsensus (bin_uri) SELECT * FROM bins;
+
 ````
+
+
+### Store taxonomic labels for each BIN grouped by taxon rank
+
+* Run the sql in `checklist/consensusbyrank.sql`. This will create tables for each of the linnean ranks containing all taxonomic labels and the number of usages for each pr BIN.
+* Populate these tables by running `checklist/procedures.sql`.
+* Finally create the consensus taxonomy running `checklist/updateboldconsensus.sql`
 
 
 
