@@ -8,7 +8,7 @@ node >= v8.9.4
 mysql >= 5.7.19
 ````
 
-## Create the BOLD occurrence dwc archive
+## Create the [BOLD occurrence dwc archive](https://www.gbif.org/dataset/040c5662-da76-4782-a48e-cdea1892d14c)
 
 ### Install dependencies:
 
@@ -80,7 +80,7 @@ Move `sequence/sequence.txt` to `data/sequence.txt`.
 ZIP the contents of the `/data` directory.
 
 
-## Create the BOLD checklist dwc archive
+## Create the [BOLD checklist dwc archive](https://www.gbif.org/dataset/4cec8fef-f129-4966-89b7-4f8439aba058)
 
 ### Get the data into MySQL
 Create tables from the file `checklist/createtables.sql`.
