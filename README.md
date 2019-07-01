@@ -80,6 +80,25 @@ Move `sequence/sequence.txt` to `data/sequence.txt`.
 ZIP the contents of the `/data` directory.
 
 
+## Create the BOLD checklist dwc archive
+
+### Get the data into MySQL
+Create tables from the file `checklist/createtables.sql`.
+
+Then, sql files are created from the tabular data:
+````
+cd checklist
+node taxatomysql.js
+`````
+Load data from the sql files:
+````
+node inserttaxafromtsv.js
+`````
+
+Populate the BIN enum table:
+````
+INSERT INTO bins SELECT bin_uri FROM boldtsvtaxa WHERE bin_uri <> "" AND bin_uri IS NOT NULL GROUP BY bin_uri;
+````
 
 
 
